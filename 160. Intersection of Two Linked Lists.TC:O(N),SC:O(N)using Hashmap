@@ -1,0 +1,22 @@
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) 
+    {
+        HashMap<Integer,ListNode>mp=new HashMap<>();
+        ListNode l1=headA;
+        ListNode l2=headB;
+        while(l1!=null)
+        {
+            mp.put(l1.val,l1);
+            l1=l1.next;
+        }
+        while(l2!=null)
+        {
+            if(mp.containsKey(l2.val)&&mp.get(l2.val)==l2)
+            {
+                return l2;
+            }
+            l2=l2.next;
+        }
+       return null;
+    }
+}
